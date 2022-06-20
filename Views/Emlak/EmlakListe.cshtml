@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Emlak>
+@{
+    ViewData["Title"] = "EmlakListe";
+}
+
+<h1>EmlakListe</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>İD</th>
+            <th>Fiyat</th>
+            <th>Konum</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.fiyat</td>
+                <td>@item.konum</td>
+                <td><a href="/Emlak/EmlakDuzenle/@item.id" class="btn btn-sm btn-primary text-white">Düzenle</a>  <a href="/Emlak/EmlakSil/@item.id" class="btn btn-sm btn-danger text-white" onclick="return confirm('Emin misiniz?')">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

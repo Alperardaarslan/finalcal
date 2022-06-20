@@ -1,0 +1,32 @@
+﻿@model finalcal.Models.Emlak
+@{
+    ViewData["Title"] = "EmlakDuzenle";
+}
+
+<h1>EmlakDuzenle</h1>
+
+<div>
+    <h4>Ogrenci</h4>
+    <hr />
+    <form asp-action="EmlakDuzenle" asp-controller="Emlak" method="post">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.konum)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.TextBoxFor(model => model.konum)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.fiyat)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.TextBoxFor(model => model.fiyat)
+            </dd>
+        </dl>
+        <input type="submit" value="Kaydet" class="btn btn-outline-success" onclick="return confirm('Emlak düzenlenecek')" />
+        @Html.HiddenFor(o=>o.id)
+    </form>
+</div>
+<div>    |
+    <a asp-action="EmlakListe" asp-controller="Emlak">Back to List</a>
+</div>
